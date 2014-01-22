@@ -1,0 +1,46 @@
+<h1>Vehicles</h1>
+<table>
+  <tr>
+    <th>Vette Id</th>
+    <th>Body Style</th>
+    <th>Miles</th>
+    <th>Year</th>
+    <th>State</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+<% corvettes.each do |entity| %>
+  <tr>
+   <td><%= entity.Vette_id %></td>
+   <td><%= entity.Body_Style %></td>
+   <td><%= entity.Miles %></td>
+   <td><%= entity.Year %></td>
+   <td><%= entity.State %></td>
+   <td><a href='/update/<%= entity.Vette_id %>'>Update</a></td>
+   <td><a href='/delete/<%= entity.Vette_id %>'>Delete</a></td>
+  </tr>
+<% end %>
+  <tr>
+  <form action="/add" method="POST">
+    <td colspan='2'><input type="text" name="bodyType"/></td>
+    <td><input type="text" name="miles"/></td>
+    <td><input type="text" name="year"/></td>
+    <td>
+      <select name="state">
+        <option value="1">Alabama</option>
+        <option value="2">Alaska</option>
+        <option value="3">Arizona</option>
+        <option value="4">Arkansas</option>
+        <option value="5">California</option>
+        <option value="6">Colorado</option>
+        <option value="7">Connecticut</option>
+        <option value="8">Delaware</option>
+        <option value="9">Florida</option>
+        <option value="10">Georgia</option>
+      </select>
+    </td>
+    <td><input type="reset" value="Clear"/></td>
+    <td><input type="submit" value="Add"/></td>
+  </form>
+  </tr>
+</table>
