@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 #require 'sinatra/static_assets'
 #require 'pp'
 #require 'sinatra/partial'
@@ -40,9 +41,13 @@ class WebSiteApi < Sinatra::Base
   end
 
   get '/courses' do
-    '[{id: 1,sname: "ISP",lname: "Internet Systems Programming",number: "3460:307",description: "This course is an introduction to Web-based programming. Topics include HTML, XHTML, XML, CSS, JavaScript, PHP, Servlet, JSP, ASP.NET, MySQL, Ruby, Ruby on Rails, and AJAX.  The students will learn the basic concepts of WWW client-server communications and the skill to use the above tools to create Web applications.",syllabusUrl: "",},{id: 2,sname: "WP",lname: "Windows Programming",number: "3460:408/508",description: "This course will expose the students to the latest concepts and techniques in programming on the Windows platform. Will teach the students how to design and implement enterprise applications. Microsoft .Net and C# will be used as the tools to implement the programs.",syllabusUrl: "./assets/documents/WP 408-508 Syllabus.pdf"}]'
+    '[{id: 1,sname: "ISP",lname: "Internet Systems Programming",number: "3460:307",description: "This course is an introduction to Web-based programming. Topics include HTML, XHTML, XML, CSS, JavaScript, PHP, Servlet, JSP, ASP.NET, MySQL, Ruby, Ruby on Rails, and AJAX.  The students will learn the basic concepts of WWW client-server communications and the skill to use the above tools to create Web applications.",syllabusUrl: ""},{id: 2,sname: "WP",lname: "Windows Programming",number: "3460:408/508",description: "This course will expose the students to the latest concepts and techniques in programming on the Windows platform. Will teach the students how to design and implement enterprise applications. Microsoft .Net and C# will be used as the tools to implement the programs.",syllabusUrl: "./assets/documents/WP 408-508 Syllabus.pdf"}]'.to_json
   end
     
+  get '/course/:id' do
+    '{id: 1,sname: "ISP",lname: "Internet Systems Programming",number: "3460:307",description: "This course is an introduction to Web-based programming. Topics include HTML, XHTML, XML, CSS, JavaScript, PHP, Servlet, JSP, ASP.NET, MySQL, Ruby, Ruby on Rails, and AJAX.  The students will learn the basic concepts of WWW client-server communications and the skill to use the above tools to create Web applications.",syllabusUrl: ""}'.to_json
+  end
+
   # get '/update/:id' do
   #   erb 'update'.to_sym, :locals => {:corvette => Corvettes.find(params[:id]) }
   # end
